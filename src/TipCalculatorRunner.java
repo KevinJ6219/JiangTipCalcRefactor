@@ -3,6 +3,7 @@ import java.text.DecimalFormat;
 
 public class TipCalculatorRunner {
     public static void main(String[] args){
+       //Ask User for Some Info like how many people and tip percentage
         Scanner input = new Scanner(System.in);
         System.out.println("Welcome to the Tip Calculator!");
         System.out.print("How many people are in your group ? ");
@@ -11,6 +12,7 @@ public class TipCalculatorRunner {
         double tipPercentage = input.nextDouble();
         TipCalculator receipt = new TipCalculator(numPeople, tipPercentage);
 
+        //Using While loop to constantly let the user enter a cost until they are done adding all the costs
         int i = 1;
         while  (i == 1){
             System.out.print("Enter a cost in dollars and cents, e.g. 12.50 (-1 to end) ");
@@ -22,7 +24,7 @@ public class TipCalculatorRunner {
             receipt.addMeal(cost);
 
         }
-
+        //Printing out the data using methods in the TipCalculator class and using decimal formatter to round
         DecimalFormat dFormatter = new DecimalFormat("##.##");
         System.out.println("----------------------------------------------------------------");
         System.out.println("Total Bill Before Tip: " + dFormatter.format(receipt.getTotalBillBeforeTip()));
